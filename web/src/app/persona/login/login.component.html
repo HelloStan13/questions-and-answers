@@ -10,7 +10,7 @@
             <p-progressSpinner *ngIf="mostrar" [style]="{width: '20', height: '20px'}" styleClass="custom-spinner" strokeWidth="8" fill="var(--surface-ground)" animationDuration=".5s"></p-progressSpinner>            
         </div>
          
-        <div class="card-body" style="margin: 20px;">
+        <div class="card-body" style="margin: 30px; ">
             <form [formGroup]="form">
                 <span class="p-float-label" style="margin: 20px;">
                     <input 
@@ -33,7 +33,7 @@
                 </span>
     
                            
-                <button [disabled]="form.invalid" (click)="ingresar()" pButton pRipple type="button" label="Iniciar" class="p-button-outlined p-button-secondary" style="margin-bottom: 10px;"></button>                        
+                <button [disabled]="form.invalid" (click)="ingresar()" pButton pRipple class="primary" type="button" label="Iniciar" class="p-button-outlined p-button-secondary" style="margin-bottom: 10px;"></button>                        
                 
                 <br>
                       
