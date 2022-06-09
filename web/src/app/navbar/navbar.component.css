@@ -1,6 +1,9 @@
 .navbar
 {
     background-color: #000000;
-    border-bottom: 1px solid #000000;
+    border-bottom: 3px solid #1b55c0;
     
+}
+.logo{
+    width: 200px;
 }
