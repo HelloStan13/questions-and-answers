@@ -33,16 +33,15 @@
                 </span>
     
                            
-                <button 
+                <p-button 
                     [disabled]="form.invalid" 
                     (click)="ingresar()" 
-                    pButton 
-                    pRipple 
+                    
                     class="primary" 
                     type="button" 
                     label="Iniciar" 
                     class="p-button-outlined p-button-secondary" 
-                    style="margin-bottom: 10px;"></button>                        
+                    style="margin-bottom: 10px;"></p-button>                        
                 
                 <br>
                       
@@ -59,9 +58,13 @@
                 <br>              
                 <p>Aun no tienes cuenta? <a href="/registro" >Registrate</a></p>
                 <p-button label="Olvidaste tu contraseña?" styleClass="p-button-link" (click)="showModalDialog()"></p-button>
-
+                <br>
+                <div >  
+                    <p></p>  
+                    <button pButton pRipple type="button" label="Preguntas" class="p-button-secondary"(click)="preguntasHome()"></button>     
+                </div>
             </form>           
-           
+            
         </div>
         
         <div>
@@ -71,10 +74,6 @@
     
 
 </div>
-<div class="container2">    
-    <button type="button" (click)="preguntasHome()" pButton pRipple label="Preguntas" class="p-button-danger mb-2"><i class="pi pi-user-edit" style="margin-top: 5px;"></i></button>     
-</div>
-
 
 
 <p-dialog widgetVar="dialog" header="Recuperar Contraseña" [(visible)]="displayModal" [modal]="true" [style]="{width: '20vw'}"
