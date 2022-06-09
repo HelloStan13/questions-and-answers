@@ -37,7 +37,7 @@ public class QuestionRouter {
     }
 
     @Bean
-    @RouterOperation(operation = @Operation(operationId = "getAllQuestions", summary = "Find all Questions", tags = { "Questions" },
+    @RouterOperation(operation = @Operation(operationId = "getOwnerAllQuestions", summary = "Find questions by user", tags = { "Questions" },
             responses = { @ApiResponse(responseCode = "200", description = "successful operation", content = @Content(schema = @Schema(implementation = QuestionDTO.class))),
                     @ApiResponse(responseCode = "400", description = "Invalid Request"),
                     @ApiResponse(responseCode = "404", description = "Questions not found") }))
@@ -54,7 +54,7 @@ public class QuestionRouter {
     }
 
     @Bean
-    @RouterOperation(operation = @Operation(operationId = "getAllQuestions", summary = "Find all Questions", tags = { "Questions" },
+    @RouterOperation(operation = @Operation(operationId = "createQuestion", summary = "Create a question", tags = { "Questions" },
             requestBody  = @RequestBody(required = true, description = "Enter Request body as Json Object",
                     content = @Content( schema = @Schema(implementation = QuestionDTO.class))),
             responses = { @ApiResponse(responseCode = "200", description = "successful operation", content = @Content(schema = @Schema(implementation = QuestionDTO.class))),
@@ -73,6 +73,10 @@ public class QuestionRouter {
     }
 
     @Bean
+    @RouterOperation(operation = @Operation(operationId = "getAQuestion", summary = "Find a question", tags = { "Questions" },
+            responses = { @ApiResponse(responseCode = "200", description = "successful operation", content = @Content(schema = @Schema(implementation = QuestionDTO.class))),
+                    @ApiResponse(responseCode = "400", description = "Invalid Request"),
+                    @ApiResponse(responseCode = "404", description = "Question not found") }))
     public RouterFunction<ServerResponse> get(GetUseCase getUseCase) {
         return route(
                 GET("/get/{id}").and(accept(MediaType.APPLICATION_JSON)),
@@ -86,6 +90,12 @@ public class QuestionRouter {
     }
 
     @Bean
+    @RouterOperation(operation = @Operation(operationId = "addAnswer", summary = "Add an answer", tags = { "Answers" },
+            requestBody  = @RequestBody(required = true, description = "Enter Request body as Json Object",
+                    content = @Content( schema = @Schema(implementation = AnswerDTO.class))),
+            responses = { @ApiResponse(responseCode = "200", description = "successful operation", content = @Content(schema = @Schema(implementation = AnswerDTO.class))),
+                    @ApiResponse(responseCode = "400", description = "Invalid Request"),
+                    @ApiResponse(responseCode = "404", description = "Answer not found") }))
     public RouterFunction<ServerResponse> addAnswer(AddAnswerUseCase addAnswerUseCase) {
         return route(POST("/add").and(accept(MediaType.APPLICATION_JSON)),
                 request -> request.bodyToMono(AnswerDTO.class)
@@ -98,6 +108,10 @@ public class QuestionRouter {
     }
 
     @Bean
+    @RouterOperation(operation = @Operation(operationId = "delete", summary = "Delete a question", tags = { "Questions" },
+            responses = { @ApiResponse(responseCode = "200", description = "successful operation", content = @Content(schema = @Schema(implementation = QuestionDTO.class))),
+                    @ApiResponse(responseCode = "400", description = "Invalid Request"),
+                    @ApiResponse(responseCode = "404", description = "Question not found") }))
     public RouterFunction<ServerResponse> delete(DeleteUseCase deleteUseCase) {
         return route(
                 DELETE("/delete/{id}").and(accept(MediaType.APPLICATION_JSON)),
