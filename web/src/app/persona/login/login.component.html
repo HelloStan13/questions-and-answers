@@ -58,6 +58,7 @@
                  
                 <br>              
                 <p>Aun no tienes cuenta? <a href="/registro" >Registrate</a></p>
+                <p-button label="Olvidaste tu contraseña?" styleClass="p-button-link" (click)="showModalDialog()"></p-button>
 
             </form>           
            
@@ -76,8 +77,8 @@
 
 
 
-<p-dialog header="Recuperar Contraseña" [(visible)]="displayModal" [modal]="true" [style]="{width: '20vw'}"
-    [draggable]="false" [resizable]="false">
+<p-dialog widgetVar="dialog" header="Recuperar Contraseña" [(visible)]="displayModal" [modal]="true" [style]="{width: '20vw'}"
+    [draggable]="false" [resizable]="false" >
     <p-progressSpinner *ngIf="mostrar2" [style]="{width: '20', height: '20px'}" styleClass="custom-spinner" strokeWidth="8" fill="var(--surface-ground)" animationDuration=".5s"></p-progressSpinner>
     <p>Llegará un email si tu correo se encuentra registrado</p>
     <form [formGroup]="form2">
