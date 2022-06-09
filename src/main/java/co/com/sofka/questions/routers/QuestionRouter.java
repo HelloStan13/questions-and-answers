@@ -4,6 +4,8 @@ import co.com.sofka.questions.model.AnswerDTO;
 import co.com.sofka.questions.model.QuestionDTO;
 import co.com.sofka.questions.usecases.*;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.enums.ParameterIn;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
@@ -38,6 +40,7 @@ public class QuestionRouter {
 
     @Bean
     @RouterOperation(operation = @Operation(operationId = "getOwnerAllQuestions", summary = "Find questions by user", tags = { "Questions" },
+            parameters = { @Parameter(in = ParameterIn.PATH, name = "userId") },
             responses = { @ApiResponse(responseCode = "200", description = "successful operation", content = @Content(schema = @Schema(implementation = QuestionDTO.class))),
                     @ApiResponse(responseCode = "400", description = "Invalid Request"),
                     @ApiResponse(responseCode = "404", description = "Questions not found") }))
@@ -74,6 +77,7 @@ public class QuestionRouter {
 
     @Bean
     @RouterOperation(operation = @Operation(operationId = "getAQuestion", summary = "Find a question", tags = { "Questions" },
+            parameters = { @Parameter(in = ParameterIn.PATH, name = "id") },
             responses = { @ApiResponse(responseCode = "200", description = "successful operation", content = @Content(schema = @Schema(implementation = QuestionDTO.class))),
                     @ApiResponse(responseCode = "400", description = "Invalid Request"),
                     @ApiResponse(responseCode = "404", description = "Question not found") }))
@@ -109,6 +113,7 @@ public class QuestionRouter {
 
     @Bean
     @RouterOperation(operation = @Operation(operationId = "delete", summary = "Delete a question", tags = { "Questions" },
+            parameters = { @Parameter(in = ParameterIn.PATH, name = "id") },
             responses = { @ApiResponse(responseCode = "200", description = "successful operation", content = @Content(schema = @Schema(implementation = QuestionDTO.class))),
                     @ApiResponse(responseCode = "400", description = "Invalid Request"),
                     @ApiResponse(responseCode = "404", description = "Question not found") }))
