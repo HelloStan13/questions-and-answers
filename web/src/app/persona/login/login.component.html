@@ -17,7 +17,8 @@
                         id="float-input" 
                         type="text" 
                         formControlName="email"
-                        pInputText> 
+                        pInputText
+                        placeholder="Escribe tu correo"> 
                     <label for="float-input">Correo</label>
                 </span>                       
 
@@ -28,7 +29,8 @@
                         id="float-input" 
                         type="password" 
                         formControlName="password"
-                        pInputText > 
+                        pInputText
+                        placeholder="Escribe tu contraseña"> 
                     <label for="float-input">Contraseña</label>
                 </span>
     
@@ -76,9 +78,9 @@
 </div>
 
 
-<p-dialog widgetVar="dialog" header="Recuperar Contraseña" [(visible)]="displayModal" [modal]="true" [style]="{width: '20vw'}"
+<p-dialog widgetVar="dialog" header="Recuperar Contraseña" [(visible)]="displayModal" [modal]="true" [style]="{width: '40vw'}"
     [draggable]="false" [resizable]="false" >
-    <p-progressSpinner *ngIf="mostrar2" [style]="{width: '20', height: '20px'}" styleClass="custom-spinner" strokeWidth="8" fill="var(--surface-ground)" animationDuration=".5s"></p-progressSpinner>
+    <p-progressSpinner *ngIf="mostrar2" [style]="{width: '100px', height: '100px'}" styleClass="custom-spinner" strokeWidth="8" fill="var(--surface-ground)" animationDuration=".5s"></p-progressSpinner>
     <p>Llegará un email si tu correo se encuentra registrado</p>
     <form [formGroup]="form2">
         <div class="col-12 md:col-4">
