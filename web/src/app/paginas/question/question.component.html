@@ -21,7 +21,7 @@
             id="category"
             class="form-control m-2 font2"
             type="text"
-            placeholder="Categorio de la Pregunta"
+            placeholder="Categoria de la Pregunta"
             name="category"
             [(ngModel)]="question.category"
             required
@@ -66,8 +66,10 @@
 </ng-template>
 
 <button
-  class="btn btn-outline-primary mb-2 me-2"
-  (click)="openVerticallyCentered(content)"
->
-  Realizar Pregunta
+  pButton pRipple 
+  type="button" 
+  label="Realizar Pregunta"
+  class="p-button-raised p-button-text"
+  styleClass="p-button-lg"
+  (click)="openVerticallyCentered(content)">
 </button>
