@@ -40,6 +40,11 @@ export class ServiceService {
       return null;
     }
   }
+
+  /*logout() {
+    return this.afauth.signOut();
+  }*/
+
   async loginRegistre(email: string, password: string) {
     try {
       return await this.afauth
