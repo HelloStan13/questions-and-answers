@@ -40,8 +40,6 @@ export class RequestionComponent implements OnInit {
   
   get2(){
     let id = this.route.snapshot.paramMap.get('id');
-    
-
     this.service.getAnswer(id).subscribe((data) => {  
           this.answers = data.answers;
     });

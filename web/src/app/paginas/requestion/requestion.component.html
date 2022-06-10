@@ -18,8 +18,7 @@
       <div class="col-5">
         <div class="card text-center">
           <div class="card-header fs-1 font1">
-            {{ question?.question }}
-           
+            {{ question?.question }}    
             
           </div>
           <div class="card-body" style="margin-right: 40px; margin-left: 40px">
@@ -28,6 +27,7 @@
           </div>
           <div class="card-footer text-muted">
             <app-answer [item]="question"></app-answer>
+        
           </div>
         </div>
       </div>
@@ -38,7 +38,6 @@
               <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                 <h5 class="text-center">Respuesta: </h5>
                 <p-rating [cancel]="false" [(ngModel)]="questions.position" [disabled]="true"></p-rating>
-     
                 
                 <!-- Respuesta -->
               </button>
