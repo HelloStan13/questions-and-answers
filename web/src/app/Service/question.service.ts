@@ -8,15 +8,20 @@ import { AnswerI } from '../models/answer-i';
   providedIn: 'root',
 })
 export class QuestionService {
+
   push(arg0: string) {
     throw new Error('Method not implemented.');
   }
 
-
   private url: string = 'http://localhost:8080/';
 
-
   constructor(private http: HttpClient) {}
+
+  getQuestionAll(): Observable<any> { 
+    let direction = this.url + 'getAll/';
+    return this.http.get<QuestionI[]>(direction);
+  }
+
 
   getPage(page: number): Observable<QuestionI[]> {
     let direction = this.url + 'pagination/' + page;
@@ -32,7 +37,7 @@ export class QuestionService {
     let direction = this.url + 'get/' + id;
     return this.http.get<QuestionI>(direction);
   }
-
+ 
   getTotalPages(): Observable<number> {
     let direction = this.url + 'totalPages';
     return this.http.get<number>(direction);

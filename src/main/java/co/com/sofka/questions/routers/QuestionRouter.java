@@ -36,6 +36,7 @@ public class QuestionRouter {
                         .body(BodyInserters.fromPublisher(listUseCase.get(), QuestionDTO.class))
         );
     }
+
     @Bean
     @RouterOperation(operation = @Operation(operationId = "getOwnerAllQuestions", summary = "Find questions by user", tags = { "Questions" },
             parameters = { @Parameter(in = ParameterIn.PATH, name = "userId") },

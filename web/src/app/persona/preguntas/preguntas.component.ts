@@ -3,6 +3,7 @@ import { QuestionI } from 'src/app/models/question-i';
 import { QuestionService } from 'src/app/Service/question.service';
 import { ServiceService } from 'src/app/Service/service.service';
 
+
 @Component({
   selector: 'app-preguntas',
   templateUrl: './preguntas.component.html',
@@ -28,8 +29,17 @@ export class PreguntasComponent implements OnInit {
   ngOnInit(): void {
     this.getQuestions();
     this.traerdatos();
+    this.service.getQuestionAll().subscribe((data) => { this.questions = data; });
+
   }
 
+  getQuestionAll(): void { this.getQuestionAll();
+    
+   }
+
+
+
+  
   getQuestions(): void {
     this.userLogged.subscribe(value =>{
         this.uid=value?.uid
