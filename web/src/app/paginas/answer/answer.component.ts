@@ -7,6 +7,7 @@ import { QuestionService } from 'src/app/Service/question.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MessageService } from 'primeng/api';
 import { ServiceService } from 'src/app/Service/service.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-answer',
@@ -43,7 +44,8 @@ export class AnswerComponent implements OnInit {
     updateAt: new Date()
   };
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   openVerticallyCentered(content: any) {
     this.modalService.open(content, { centered: true });
@@ -52,7 +54,6 @@ export class AnswerComponent implements OnInit {
   saveAnswer(): void {
     this.answer.userId = this.item.userId;
     this.answer.questionId = this.item.id;
-    this.answer.createAt = this.item.createAt;
     this.services.saveAnswer(this.answer).subscribe({
       next: (v) => {
         if(v){
