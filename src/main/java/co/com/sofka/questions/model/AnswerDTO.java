@@ -27,7 +27,7 @@ public class AnswerDTO {
         this.userId = userId;
         this.questionId = questionId;
         this.answer = answer;
-        this.createAt = LocalDateTime.now();
+        this.createAt = createAt;
     }
 
     public Integer getPosition() {
@@ -37,7 +37,6 @@ public class AnswerDTO {
     public void setPosition(Integer position) {
         this.position = position;
     }
-
 
     public String getUserId() {
         return userId;
@@ -98,8 +97,7 @@ public class AnswerDTO {
                 "userId='" + userId + '\'' +
                 ", questionId='" + questionId + '\'' +
                 ", answer='" + answer + '\'' +
-                ", createAt=" + createAt +
-                ", updateAt=" + updateAt +
+                
                 '}';
     }
 }
