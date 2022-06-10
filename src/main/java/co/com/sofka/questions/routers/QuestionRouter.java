@@ -24,7 +24,6 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
 
 @Configuration
 public class QuestionRouter {
-
     @Bean
     @RouterOperation(operation = @Operation(operationId = "getAllQuestions", summary = "Find all Questions", tags = { "Questions" },
             responses = { @ApiResponse(responseCode = "200", description = "successful operation", content = @Content(schema = @Schema(implementation = QuestionDTO.class))),
@@ -37,7 +36,6 @@ public class QuestionRouter {
                         .body(BodyInserters.fromPublisher(listUseCase.get(), QuestionDTO.class))
         );
     }
-
     @Bean
     @RouterOperation(operation = @Operation(operationId = "getOwnerAllQuestions", summary = "Find questions by user", tags = { "Questions" },
             parameters = { @Parameter(in = ParameterIn.PATH, name = "userId") },
@@ -55,7 +53,6 @@ public class QuestionRouter {
                          ))
         );
     }
-
     @Bean
     @RouterOperation(operation = @Operation(operationId = "createQuestion", summary = "Create a question", tags = { "Questions" },
             requestBody  = @RequestBody(required = true, description = "Enter Request body as Json Object",
@@ -74,7 +71,6 @@ public class QuestionRouter {
                 request -> request.bodyToMono(QuestionDTO.class).flatMap(executor)
         );
     }
-
     @Bean
     @RouterOperation(operation = @Operation(operationId = "getAQuestion", summary = "Find a question", tags = { "Questions" },
             parameters = { @Parameter(in = ParameterIn.PATH, name = "id") },
@@ -92,7 +88,6 @@ public class QuestionRouter {
                         ))
         );
     }
-
     @Bean
     @RouterOperation(operation = @Operation(operationId = "addAnswer", summary = "Add an answer", tags = { "Answers" },
             requestBody  = @RequestBody(required = true, description = "Enter Request body as Json Object",
@@ -110,7 +105,6 @@ public class QuestionRouter {
                         )
         );
     }
-
     @Bean
     @RouterOperation(operation = @Operation(operationId = "delete", summary = "Delete a question", tags = { "Questions" },
             parameters = { @Parameter(in = ParameterIn.PATH, name = "id") },
