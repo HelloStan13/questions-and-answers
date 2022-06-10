@@ -15,11 +15,11 @@ import { User } from '../models/user';
 export class ServiceService {
   userData: any;
   constructor(
-    public afauth: AngularFireAuth,
+    public faut: AngularFireAuth,
     public store: AngularFirestore,
     public router: Router
   ) {
-    this.afauth.authState.subscribe((user) => {
+    this.faut.authState.subscribe((user) => {
       if (user) {
         this.userData = user;
         JSON.parse(localStorage.getItem('user')!);
@@ -33,7 +33,7 @@ export class ServiceService {
 
   async login(email: string, password: string) {
     try {
-      return await this.afauth
+      return await this.faut
         .signInWithEmailAndPassword(email, password)      
         
     } catch (error) {
@@ -41,13 +41,13 @@ export class ServiceService {
     }
   }
 
-  /*logout() {
-    return this.afauth.signOut();
-  }*/
+  logout() {
+    return this.faut.signOut();
+  }
 
   async loginRegistre(email: string, password: string) {
     try {
-      return await this.afauth
+      return await this.faut
         .createUserWithEmailAndPassword(email, password)        
     } catch (error) {
       return null;
@@ -56,14 +56,14 @@ export class ServiceService {
 
   async resetPassword(email: string) {
     try {
-      return this.afauth.sendPasswordResetEmail(email);
+      return this.faut.sendPasswordResetEmail(email);
     } catch (error) {
       return null;
     }
   }
   async loginGoogle(email: string, password: string) {
     try {
-      return await this.afauth
+      return await this.faut
         .signInWithPopup(new firebase.auth.GoogleAuthProvider())       
     } catch (error) {
       return null;
@@ -71,7 +71,7 @@ export class ServiceService {
   }
 
   getUserLogged() {
-    return this.afauth.authState;
+    return this.faut.authState;
   }
 
 

@@ -13,13 +13,13 @@ export class PreguntasComponent implements OnInit {
   userLogged = this.authService.getUserLogged();
   uid: any;
 
-  totalQuestions: number = 0;
 
   questions: QuestionI[] | undefined;
   user: any = '';
   page: number = 0;
   pages: Array<number> | undefined;
   disabled: boolean = false;
+  totalQuestions: number = 0;
 
   constructor(
     private service: QuestionService,
@@ -30,16 +30,12 @@ export class PreguntasComponent implements OnInit {
     this.getQuestions();
     this.traerdatos();
     this.service.getQuestionAll().subscribe((data) => { this.questions = data; });
-
   }
 
   getQuestionAll(): void { this.getQuestionAll();
     
    }
 
-
-
-  
   getQuestions(): void {
     this.userLogged.subscribe(value =>{
         this.uid=value?.uid

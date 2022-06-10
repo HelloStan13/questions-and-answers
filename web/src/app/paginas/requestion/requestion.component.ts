@@ -59,7 +59,7 @@ export class RequestionComponent implements OnInit {
     let last=this.currentAnswer+index;
     for(let i = this.currentAnswer;i<last;i++){
     }
-    this.currentAnswer+=10;
+    this.currentAnswer+=index;
   }
 
   onScroll() {

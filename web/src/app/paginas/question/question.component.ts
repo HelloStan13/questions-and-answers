@@ -49,7 +49,6 @@ export class QuestionComponent implements OnInit {
     this.modalService.open(content, { centered: true });
   }
 
-  getQuestionAll() { this.services.getQuestionAll(); }
 
   saveQuestion(question: QuestionI): void {
     if(question.type && question.category){    
