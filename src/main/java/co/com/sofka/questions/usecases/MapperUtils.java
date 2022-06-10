@@ -18,6 +18,8 @@ public class MapperUtils {
             answer.setQuestionId(updateAnswer.getQuestionId());
             answer.setUserId(updateAnswer.getUserId());
             answer.setAnswer(updateAnswer.getAnswer());
+            answer.setCreateAt(updateAnswer.getCreateAt());
+            answer.setUpdateAt(updateAnswer.getUpdateAt());
             return answer;
         };
     }
@@ -49,7 +51,8 @@ public class MapperUtils {
         return entity -> new AnswerDTO(
                 entity.getId(),
                 entity.getUserId(),
-                entity.getAnswer()
+                entity.getAnswer(),
+                entity.getCreateAt()
         );
     }
 }

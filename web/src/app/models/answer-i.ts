@@ -3,4 +3,6 @@ export interface AnswerI {
    questionId:string;
    answer:string;
    position:number;
+   createAt: Date;
+   updateAt: Date;
 }

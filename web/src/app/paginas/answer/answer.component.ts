@@ -39,6 +39,8 @@ export class AnswerComponent implements OnInit {
     questionId: '',
     answer: '',
     position: 0,
+    createAt: new Date(),
+    updateAt: new Date()
   };
 
   ngOnInit(): void {}
@@ -50,6 +52,7 @@ export class AnswerComponent implements OnInit {
   saveAnswer(): void {
     this.answer.userId = this.item.userId;
     this.answer.questionId = this.item.id;
+    this.answer.createAt = this.item.createAt;
     this.services.saveAnswer(this.answer).subscribe({
       next: (v) => {
         if(v){

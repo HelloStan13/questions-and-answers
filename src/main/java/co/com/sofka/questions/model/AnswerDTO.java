@@ -2,6 +2,7 @@ package co.com.sofka.questions.model;
 
 
 import javax.validation.constraints.NotBlank;
+import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -14,16 +15,19 @@ public class AnswerDTO {
     private String answer;
 
     private Integer position;
+    private LocalDateTime createAt;
+    private LocalDateTime updateAt;
 
 
     public AnswerDTO() {
 
     }
 
-    public AnswerDTO(@NotBlank String questionId, @NotBlank String userId, @NotBlank String answer) {
+    public AnswerDTO(@NotBlank String questionId, @NotBlank String userId, @NotBlank String answer, LocalDateTime createAt) {
         this.userId = userId;
         this.questionId = questionId;
         this.answer = answer;
+        this.createAt = LocalDateTime.now();
     }
 
     public Integer getPosition() {
@@ -59,6 +63,22 @@ public class AnswerDTO {
         this.answer = answer;
     }
 
+    public LocalDateTime getCreateAt() {
+        return createAt;
+    }
+
+    public void setCreateAt(LocalDateTime createAt) {
+        this.createAt = createAt;
+    }
+
+    public LocalDateTime getUpdateAt() {
+        return updateAt;
+    }
+
+    public void setUpdateAt(LocalDateTime updateAt) {
+        this.updateAt = updateAt;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -78,6 +98,8 @@ public class AnswerDTO {
                 "userId='" + userId + '\'' +
                 ", questionId='" + questionId + '\'' +
                 ", answer='" + answer + '\'' +
+                ", createAt=" + createAt +
+                ", updateAt=" + updateAt +
                 '}';
     }
 }
