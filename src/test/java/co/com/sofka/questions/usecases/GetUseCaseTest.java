@@ -19,9 +19,6 @@ import reactor.test.StepVerifier;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
-
 @SpringBootTest
 class GetUseCaseTest {
 
@@ -54,11 +51,12 @@ class GetUseCaseTest {
         List<AnswerDTO> answersDTO = new ArrayList<>();
 
         Answer answer = new Answer();
-        AnswerDTO answerDTO = new AnswerDTO("asdf", "12334", "Es 4", LocalDateTime.of(2022, 06, 10, 8, 0));
+        AnswerDTO answerDTO = new AnswerDTO("asdf", "12334", "Es 4",1, LocalDateTime.of(2022, 06, 10, 8, 0));
         answer.setQuestionId(answerDTO.getQuestionId());
         answer.setUserId(answerDTO.getUserId());
         answer.setAnswer(answerDTO.getAnswer());
         answer.setCreateAt(answerDTO.getCreateAt());
+        answer.setPosition(answerDTO.getPosition());
 
         answersDTO.add(answerDTO);
 

@@ -1,6 +1,8 @@
 package co.com.sofka.questions.model;
 
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -13,22 +15,21 @@ public class AnswerDTO {
     private String questionId;
     @NotBlank
     private String answer;
-
+    @NotBlank
     private Integer position;
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDateTime createAt;
     private LocalDateTime updateAt;
 
 
     public AnswerDTO() {
-
     }
-
-    public AnswerDTO(@NotBlank String questionId, @NotBlank String userId, @NotBlank String answer, @NotBlank Integer position,LocalDateTime createAt) {
+    public AnswerDTO(@NotBlank String questionId, @NotBlank String userId, @NotBlank String answer,  @NotBlank Integer position,LocalDateTime createAt) {
         this.userId = userId;
         this.questionId = questionId;
         this.answer = answer;
-        this.position= position;
         this.createAt = createAt;
+        this.position= position;
     }
 
     public Integer getPosition() {
@@ -58,6 +59,7 @@ public class AnswerDTO {
     public String getAnswer() {
         return answer;
     }
+
 
     public void setAnswer(String answer) {
         this.answer = answer;
