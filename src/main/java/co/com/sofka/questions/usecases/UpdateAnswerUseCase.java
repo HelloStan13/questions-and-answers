@@ -15,17 +15,23 @@ import java.util.Objects;
 public class UpdateAnswerUseCase implements SaveAnswer {
     private final MapperUtils mapper;
     private final AnswerRepository answerRepository;
+    private final GetUseCase getUseCase;
 
     public UpdateAnswerUseCase(MapperUtils mapper, AnswerRepository answerRepository, GetUseCase getUseCase) {
         this.mapper = mapper;
         this.answerRepository = answerRepository;
+        this.getUseCase = getUseCase;
     }
 
     @Override
     public Mono<QuestionDTO> apply(AnswerDTO answerDTO) {
         Objects.requireNonNull(answerDTO.getQuestionId(), "Id of the question is required");
-        return answerRepository
-                .save(mapper.mapperToAnswer(answerDTO.getQuestionId()).apply(answerDTO))
-                .map(Answer::getQuestionId);
+        return getUseCase.apply(answerDTO.getQuestionId()).flatMap(question ->
+                answerRepository.save(mapper.mapperToAnswer().apply(answerDTO))
+                .map(Answer::getQuestionId)
+                        .map(answer -> {
+                            question.getAnswers().add(answerDTO);
+                            return question;
+                        }));
     }
 }

@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.time.LocalDateTime;
 
 @Document(collection= "answer")
-public class Answer extends AnswerDTO {
+public class Answer {
     @Id
     private String id;
     private String userId;
@@ -15,9 +15,6 @@ public class Answer extends AnswerDTO {
     private Integer position;
     private LocalDateTime createAt;
     private LocalDateTime updateAt;
-
-    public Answer(){}
-
 
     public Integer getPosition() {
         return position;
