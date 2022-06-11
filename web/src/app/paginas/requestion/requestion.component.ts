@@ -63,8 +63,5 @@ export class RequestionComponent implements OnInit {
     this.currentAnswer+=index;
   }
 
-  onScroll(event: MouseEvent) {
-
-  }
 }
 

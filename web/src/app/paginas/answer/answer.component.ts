@@ -80,10 +80,3 @@ export class AnswerComponent implements OnInit {
     });
   }
 }
-
-
-
-function editAnswer(answer: any, AnswerI: any) {
-  throw new Error('Function not implemented.');
-}
-

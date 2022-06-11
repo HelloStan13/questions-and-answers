@@ -18,6 +18,8 @@ public class MapperUtils {
             answer.setQuestionId(updateAnswer.getQuestionId());
             answer.setUserId(updateAnswer.getUserId());
             answer.setAnswer(updateAnswer.getAnswer());
+            answer.setCreateAt(updateAnswer.getCreateAt());
+            answer.setUpdateAt(updateAnswer.getUpdateAt());
             return answer;
         };
     }

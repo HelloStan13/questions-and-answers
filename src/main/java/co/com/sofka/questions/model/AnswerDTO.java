@@ -14,9 +14,7 @@ public class AnswerDTO {
     private String questionId;
     @NotBlank
     private String answer;
-    @NotBlank
     private Integer position;
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDateTime createAt;
     private LocalDateTime updateAt;
 
@@ -25,7 +23,7 @@ public class AnswerDTO {
 
     }
 
-    public AnswerDTO(@NotBlank String questionId, @NotBlank String userId, @NotBlank String answer,  @NotBlank Integer position,LocalDateTime createAt) {
+    public AnswerDTO(@NotBlank String questionId, @NotBlank String userId, @NotBlank String answer,  Integer position,LocalDateTime createAt) {
         this.userId = userId;
         this.questionId = questionId;
         this.answer = answer;
