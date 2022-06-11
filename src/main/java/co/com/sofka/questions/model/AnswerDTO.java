@@ -6,7 +6,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 import java.util.Objects;
-import java.util.Optional;
 
 public class AnswerDTO {
     @NotBlank(message = "Debe existir el userId para este objeto")
@@ -23,13 +22,15 @@ public class AnswerDTO {
 
 
     public AnswerDTO() {
+
     }
+
     public AnswerDTO(@NotBlank String questionId, @NotBlank String userId, @NotBlank String answer,  @NotBlank Integer position,LocalDateTime createAt) {
         this.userId = userId;
         this.questionId = questionId;
         this.answer = answer;
-        this.createAt = createAt;
         this.position= position;
+        this.createAt = createAt;
     }
 
     public Integer getPosition() {
@@ -59,7 +60,6 @@ public class AnswerDTO {
     public String getAnswer() {
         return answer;
     }
-
 
     public void setAnswer(String answer) {
         this.answer = answer;

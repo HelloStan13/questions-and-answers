@@ -16,7 +16,6 @@ public class AddAnswerUseCase implements SaveAnswer {
     private final MapperUtils mapperUtils;
     private final GetUseCase getUseCase;
 
-
     public AddAnswerUseCase(MapperUtils mapperUtils, GetUseCase getUseCase, AnswerRepository answerRepository) {
         this.answerRepository = answerRepository;
         this.getUseCase = getUseCase;

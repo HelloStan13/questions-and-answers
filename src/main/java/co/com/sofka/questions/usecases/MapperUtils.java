@@ -11,15 +11,13 @@ import java.util.function.Function;
 @Component
 public class MapperUtils {
 
-    public Function<AnswerDTO, Answer> mapperToAnswer( String id) {
+    public Function<AnswerDTO, Answer> mapperToAnswer() {
         return updateAnswer -> {
             var answer = new Answer();
             answer.setPosition(updateAnswer.getPosition());
             answer.setQuestionId(updateAnswer.getQuestionId());
             answer.setUserId(updateAnswer.getUserId());
             answer.setAnswer(updateAnswer.getAnswer());
-            answer.setCreateAt(updateAnswer.getCreateAt());
-            answer.setUpdateAt(updateAnswer.getUpdateAt());
             return answer;
         };
     }
