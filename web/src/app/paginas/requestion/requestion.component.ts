@@ -4,10 +4,12 @@ import { AnswerI } from 'src/app/models/answer-i';
 import { QuestionI } from 'src/app/models/question-i';
 import { QuestionService } from 'src/app/Service/question.service';
 
+
 @Component({
   selector: 'app-requestion',
   templateUrl: './requestion.component.html',
-  styleUrls: ['./requestion.component.css']
+  styleUrls: ['./requestion.component.css'],
+  
 })
 export class RequestionComponent implements OnInit {
   
@@ -15,6 +17,7 @@ export class RequestionComponent implements OnInit {
   answers: AnswerI[] | undefined;
   answersNew: AnswerI[]=[];
   currentAnswer:number=0;
+
 
   questions: QuestionI[] | undefined;
  
@@ -60,8 +63,8 @@ export class RequestionComponent implements OnInit {
     this.currentAnswer+=index;
   }
 
-  onScroll() {
+  onScroll(event: MouseEvent) {
 
   }
-
 }
+

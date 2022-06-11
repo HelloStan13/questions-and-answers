@@ -120,4 +120,23 @@ public class QuestionRouter {
                         .body(BodyInserters.fromPublisher(deleteUseCase.apply(request.pathVariable("id")), Void.class))
         );
     }
+
+    @Bean
+    @RouterOperation(operation = @Operation(operationId = "update", summary = "Update  answer", tags = { "Answers" },
+            requestBody  = @RequestBody(required = true, description = "Enter Request body as Json Object",
+                    content = @Content( schema = @Schema(implementation = AnswerDTO.class))),
+            responses = { @ApiResponse(responseCode = "200", description = "successful operation", content = @Content(schema = @Schema(implementation = AnswerDTO.class))),
+                    @ApiResponse(responseCode = "400", description = "Invalid Request") }))
+    public RouterFunction<ServerResponse> update(UpdateAnswerUseCase updateAnswerUseCase){
+        Function<AnswerDTO, Mono<ServerResponse>> executor =
+                (answerDTO) -> updateAnswerUseCase.apply(answerDTO)
+                        .flatMap(result -> ServerResponse.ok()
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .bodyValue(result));
+
+        return route(PUT("/update").and(accept(MediaType.APPLICATION_JSON)),
+                request -> request.bodyToMono(AnswerDTO.class)
+                        .flatMap(executor));
+    }
+
 }

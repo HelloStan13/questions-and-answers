@@ -3,8 +3,7 @@
 <ng-template #content let-modal>
     <div class="modal-header">       
     </div>
-    <div class="modal-body">
-  
+    <div class="modal-body"> 
       <div class="container">
         <div class="card text-center">
           <div class="card-header font2">
@@ -17,8 +16,7 @@
               <div class="form-floating font2" style="margin-top: 20px;">
                 <textarea class="form-control m-2 font2" placeholder="Leave a comment here" id="question" style="height: 150px" [(ngModel)]="question.question"></textarea>
                 <label for="floatingTextarea">Pregunta</label>
-                
-                
+
                 <br>
               </div>
               <button pButton (click)="editQuestion(question)" pRipple type="button" label="Actualizar Pregunta" class="p-button-outlined p-button-info"></button>

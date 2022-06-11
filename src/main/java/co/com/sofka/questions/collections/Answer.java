@@ -1,11 +1,12 @@
 package co.com.sofka.questions.collections;
 
+import co.com.sofka.questions.model.AnswerDTO;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import java.time.LocalDateTime;
 
 @Document(collection= "answer")
-public class Answer {
+public class Answer extends AnswerDTO {
     @Id
     private String id;
     private String userId;
@@ -14,6 +15,9 @@ public class Answer {
     private Integer position;
     private LocalDateTime createAt;
     private LocalDateTime updateAt;
+
+    public Answer(){}
+
 
     public Integer getPosition() {
         return position;
