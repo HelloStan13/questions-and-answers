@@ -22,6 +22,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { RequestionComponent } from './paginas/requestion/requestion.component';
 import { EditComponent } from './paginas/edit/edit.component';
 import { RatingModule } from "primeng/rating";
+import { EditAnswerComponent } from './paginas/edit-answer/edit-answer.component';
 
     
 
@@ -37,7 +38,8 @@ import { RatingModule } from "primeng/rating";
     AnswerComponent,
     QuestionComponent,
     RequestionComponent,
-    EditComponent
+    EditComponent,
+    EditAnswerComponent
        
   ],
   imports: [
