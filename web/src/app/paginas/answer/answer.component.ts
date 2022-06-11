@@ -8,6 +8,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MessageService } from 'primeng/api';
 import { ServiceService } from 'src/app/Service/service.service';
 import { DatePipe } from '@angular/common';
+import { Rating } from 'primeng/rating';
 
 @Component({
   selector: 'app-answer',
@@ -17,13 +18,13 @@ import { DatePipe } from '@angular/common';
 })
 export class AnswerComponent implements OnInit {
 
-  
   public form: FormGroup = this.formBuilder.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(10)]],
     rating: ['', []],
   });
 
+  
   @Input() item: any;
   constructor(
     private modalService: NgbModal,
@@ -45,6 +46,7 @@ export class AnswerComponent implements OnInit {
   };
 
   ngOnInit(): void {
+  
   }
 
   openVerticallyCentered(content: any) {
@@ -78,3 +80,10 @@ export class AnswerComponent implements OnInit {
     });
   }
 }
+
+
+
+function editAnswer(answer: any, AnswerI: any) {
+  throw new Error('Function not implemented.');
+}
+

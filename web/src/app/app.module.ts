@@ -21,6 +21,9 @@ import { ToastModule } from 'primeng/toast';
 import { ToastrModule } from 'ngx-toastr';
 import { RequestionComponent } from './paginas/requestion/requestion.component';
 import { EditComponent } from './paginas/edit/edit.component';
+import { RatingModule } from "primeng/rating";
+
+    
 
 
 
@@ -47,8 +50,8 @@ import { EditComponent } from './paginas/edit/edit.component';
     HttpClientModule,
     NgbModule,
     FormsModule,
-    ToastrModule.forRoot()
-    
+    ToastrModule.forRoot(),
+    RatingModule,
    
     
   ],

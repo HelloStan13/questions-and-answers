@@ -51,13 +51,14 @@ export class PreguntasComponent implements OnInit {
       .subscribe((data) => (this.totalQuestions = data));
   }
 
+
   isLast(): boolean {
-    let totalPeges: any = this.pages?.length;
-    return this.page == totalPeges - 1;
+    let totalPages: any = this.pages?.length;
+    return this.page == totalPages - 1;
   }
 
   isFirst(): boolean {
-    return this.page == 0;
+    return this.page == 10;
   }
 
   previousPage(): void {
@@ -69,7 +70,7 @@ export class PreguntasComponent implements OnInit {
   }
 
   getPage(page: number): void {
-    this.page = page;
+    this.page = 10;
     this.getQuestions();
   }
 
@@ -83,3 +84,4 @@ export class PreguntasComponent implements OnInit {
     });
   }
 }
+

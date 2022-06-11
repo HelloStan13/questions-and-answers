@@ -23,15 +23,16 @@ public class AnswerDTO {
 
     }
 
-    public AnswerDTO(@NotBlank String questionId, @NotBlank String userId, @NotBlank String answer, LocalDateTime createAt) {
+    public AnswerDTO(@NotBlank String questionId, @NotBlank String userId, @NotBlank String answer, @NotBlank Integer position,LocalDateTime createAt) {
         this.userId = userId;
         this.questionId = questionId;
         this.answer = answer;
+        this.position= position;
         this.createAt = createAt;
     }
 
     public Integer getPosition() {
-        return Optional.ofNullable(position).orElse(1);
+        return  position;
     }
 
     public void setPosition(Integer position) {
@@ -97,7 +98,7 @@ public class AnswerDTO {
                 "userId='" + userId + '\'' +
                 ", questionId='" + questionId + '\'' +
                 ", answer='" + answer + '\'' +
-                
+
                 '}';
     }
 }

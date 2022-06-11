@@ -27,7 +27,7 @@ export class EditComponent implements OnInit {
     type: '',
     category: '',
     answers:[null],
-    start: '2'
+    start: '0'
   };
 
   constructor(
@@ -48,7 +48,6 @@ export class EditComponent implements OnInit {
     this.question=this.idanswer;
   }
   
-
   openVerticallyCentered(content: any) {
     this.modalService.open(content, { centered: true });
   }
@@ -59,24 +58,39 @@ export class EditComponent implements OnInit {
     
   }
 
-
   editQuestion(question: QuestionI): void{
-     question.id=this.idanswer.id;
-    question.userId=this.idanswer.userId;
+    question.id=this.idanswer.id;
+   question.userId=this.idanswer.userId;
 
-    this.services.editQuestion(question).subscribe((v)=>{
+   this.services.editQuestion(question).subscribe((v)=>{
+    
+   });
+
+   this.modalService.dismissAll();
+   this.messageService.add({
+     severity: 'success',
+     summary: 'Se ha actualizado la pregunta',          
+    });
+   setTimeout(() => {
+     window.location.reload();
+   }, 2000);
+ }
+
+ saveAnswer(answer: AnswerI): void{
+    this.services.saveAnswer(answer).subscribe((v)=>{
      
     });
 
     this.modalService.dismissAll();
     this.messageService.add({
       severity: 'success',
-      summary: 'Se ha actualizado la pregunta',          
+      summary: 'Se ha actualizado la respuesta',          
      });
     setTimeout(() => {
       window.location.reload();
     }, 2000);
   }
+
 
   saveQuestion(question: QuestionI): void {
     if(question.type && question.category){    

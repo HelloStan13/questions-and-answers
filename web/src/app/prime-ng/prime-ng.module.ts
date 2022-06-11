@@ -11,6 +11,7 @@ import {ToastModule} from 'primeng/toast';
 import {MenuModule} from 'primeng/menu';
 import {DividerModule} from 'primeng/divider';
 import {DialogModule} from 'primeng/dialog';
+import {PaginatorModule} from 'primeng/paginator';
 
 
 
@@ -29,7 +30,8 @@ import {DialogModule} from 'primeng/dialog';
     ToastModule,
     MenuModule,
     DividerModule,
-    DialogModule
+    DialogModule,
+    PaginatorModule
     
     
   ]

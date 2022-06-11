@@ -52,6 +52,7 @@ public class MapperUtils {
                 entity.getId(),
                 entity.getUserId(),
                 entity.getAnswer(),
+                entity.getPosition(),
                 entity.getCreateAt()
         );
     }
