@@ -1,4 +1,7 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { QuestionService } from 'src/app/Service/question.service';
 
 import { RequestionComponent } from './requestion.component';
 
@@ -8,7 +11,9 @@ describe('RequestionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RequestionComponent ]
+      imports: [RouterTestingModule, HttpClientModule],
+      declarations: [ RequestionComponent ],
+      providers: [ QuestionService ]
     })
     .compileComponents();
   });
