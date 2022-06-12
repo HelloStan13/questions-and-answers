@@ -23,11 +23,11 @@ export class RequestionComponent implements OnInit {
  
   page: number = 0;
 
-  ///for scroll infinite/
+  /*for scroll infinite*/
   listArray : string[] = [];
   sum = 10;
   direction = "";
-//  /end for scroll infinite/
+ /*end for scroll infinite*/
   constructor(
     private route:ActivatedRoute,
     private questionService:QuestionService,
@@ -62,19 +62,17 @@ export class RequestionComponent implements OnInit {
 
   }
 
-
   AddAnwsers(index:number) {
     let last=this.currentAnswer+index;
     for(let i = this.currentAnswer;i<last;i++){
     }
-    this.currentAnswer+=index;
-    console.log("estoy aqui ");
+    this.currentAnswer+=10;
   }
 
   onScroll(event: MouseEvent) {
 
   }
-  //for scroll infinite/
+  /*for scroll infinite*/
   onScrollDown(ev: any) {
     console.log("scrolled down!!", ev);
 
@@ -109,5 +107,6 @@ export class RequestionComponent implements OnInit {
       }
     }
   }
-  //end for scroll infinite/
+  /*end for scroll infinite*/
 }
+

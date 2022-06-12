@@ -26,13 +26,11 @@ export class QuestionService {
   getPage(page: number): Observable<QuestionI[]> {
     let direction = this.url + 'pagination/' + page;
     return this.http.get<QuestionI[]>(direction);
-
   }
 
   getAnswer(id: any): Observable<QuestionI> {
-    let direction = this.url + 'get/' + "id";
+    let direction = this.url + 'get/' + id;
     return this.http.get<QuestionI>(direction);
-    
   }
 
   getQuestion(id: string): Observable<QuestionI> {
@@ -41,34 +39,34 @@ export class QuestionService {
   }
  
   getTotalPages(): Observable<number> {
-    let direction = this.url + 'totalPages';
+    let direction = this.url + 'totalPages/';
     return this.http.get<number>(direction);
   }
 
   getCountQuestions(): Observable<number> {
-    let direction = this.url + 'countQuestions';
+    let direction = this.url + 'countQuestions/';
     return this.http.get<number>(direction);
   }
 
   saveQuestion(question: QuestionI): Observable<any> {
-    let direction = this.url + 'create';
+    let direction = this.url + 'create/';
     return this.http.post<any>(direction, question, {
       responseType: 'text' as 'json',
     });
   }
 
   saveAnswer(answer: AnswerI): Observable<any> {
-    let direction = this.url + 'add';
+    let direction = this.url + 'add/';
     return this.http.post<any>(direction, answer);
   }
 
   editAnswer(answer: AnswerI): Observable<any> {
-    let direction = this.url + 'updateAnswer' ;
-    return this.http.put<any>(direction, answer)
+    let direction = this.url + 'editAnswer/';
+    return this.http.put<any>(direction, answer);
   }
 
   editQuestion(question: QuestionI): Observable<any> {
-    let direction = this.url + 'update';
-    return this.http.post<any>(direction, question);
-}
+    let direction = this.url + 'updateQ/';
+    return this.http.put<any>(direction, question);
+  }
 }

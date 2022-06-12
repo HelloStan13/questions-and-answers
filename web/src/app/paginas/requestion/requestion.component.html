@@ -38,20 +38,23 @@
         <div class="accordion" id="accordionExample"  *ngFor="let questions of answers">
           <div class="accordion-item">
             <h2 class="accordion-header" id="headingOne">
-              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                <h5 class="text-center">Respuesta: </h5>
-                <p-rating [(ngModel)]="questions.position"   [disabled]="true"  ></p-rating>
               
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <h5 class="text-center">Respuesta :  </h5>
+                <p-rating [cancel]="false"  [(ngModel)]="questions.position"   [disabled]="true"  ></p-rating>
+                
                 <!-- Respuesta -->
               </button>
             
             </h2>
             <div class="accordion-body">
             <div id="collapseOne" class="accordion-collapse collapse show"  aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-              <p>{{ questions.answer}}</p>   
+              <!-- <p>{{ questions.id }}</p>-->   
+              <p>{{ questions.answer }}</p>   
               <p>Fecha de creación:{{ questions.createAt }}</p> 
-              <p>Fecha de actualización:{{ questions.updateAt }}</p>
-              <app-edit-answer ></app-edit-answer>
+            </div>
+            <div class="card-footer text-muted">
+              <app-edit-answer [item]="questions"></app-edit-answer>
             </div>
             </div>
           </div>        
@@ -60,4 +63,5 @@
       </div> 
       </div>     
     </div>
-  </div>
+  </div>  
+  

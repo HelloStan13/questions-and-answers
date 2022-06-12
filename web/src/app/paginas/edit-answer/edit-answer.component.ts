@@ -22,8 +22,23 @@ export class EditAnswerComponent implements OnInit {
     password: ['', [Validators.required, Validators.minLength(10)]],
     rating: ['', []],
   });
- 
+
+  @Input() answer2: AnswerI[] | undefined;
+  userLogged = this.authService.getUserLogged();
+  answers: AnswerI[] | undefined;
+  questions: AnswerI[] | undefined;
+  @Input() idanswer: any='';  
   @Input() item: any;
+  answer: AnswerI = {
+    id:'',
+    userId: '',
+    questionId: '',
+    answer: '',
+    position: 0,
+    createAt: new Date(),
+    updateAt: new Date()
+  };
+  
   constructor(
     private modalService: NgbModal,
     private services: QuestionService,
@@ -33,37 +48,39 @@ export class EditAnswerComponent implements OnInit {
     private messageService: MessageService,
     public authService: ServiceService
   ) {}
-
-  answer: AnswerI = {
-    id: '',
-    userId: '',
-    questionId: '',
-    answer: '',
-    position: 0,
-    createAt: new Date(),
-    updateAt: new Date()
-  };
-
- 
+  
 
   ngOnInit(): void {
-
+    this.answer=this.item;
+    this.getData();
   }
-
+  getData(){    
+    this.userLogged.subscribe(value=>{
+    })    
+  }
+    
   openVerticallyCentered(content: any) {
     this.modalService.open(content, { centered: true });
   }
 
-  editAnswer(answerUpdate: AnswerI): void {
-    this.services.editAnswer(answerUpdate).subscribe((v) => {});
-    this.modalService.dismissAll();
-    this.messageService.add({
-      severity: 'success',
-      summary: 'Se ha agregado la respuesta',
-      
-     });
-     setTimeout(() => {
+  editAnswer(answer: AnswerI): void{
+    answer.id=this.answer.id;
+    answer.userId = this.item.userId;
+    answer.questionId = this.item.id;
+    answer.updateAt=this.item.updateAt;
+
+   this.services.editAnswer(answer).subscribe((v)=>{
+    
+   });
+
+   this.modalService.dismissAll();
+   this.messageService.add({
+     severity: 'success',
+     summary: 'Se ha actualizado la respuesta',          
+    });
+    /*
+   setTimeout(() => {
      window.location.reload();
-   }, 2000);
-  }        
+   }, 2000);*/
+ }
 }
