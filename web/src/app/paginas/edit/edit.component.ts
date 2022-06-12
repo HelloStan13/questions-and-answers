@@ -76,21 +76,6 @@ export class EditComponent implements OnInit {
    }, 2000);
  }
 
- saveAnswer(answer: AnswerI): void{
-    this.services.saveAnswer(answer).subscribe((v)=>{
-     
-    });
-
-    this.modalService.dismissAll();
-    this.messageService.add({
-      severity: 'success',
-      summary: 'Se ha actualizado la respuesta',          
-     });
-    setTimeout(() => {
-      window.location.reload();
-    }, 2000);
-  }
-
 
   saveQuestion(question: QuestionI): void {
     if(question.type && question.category){    

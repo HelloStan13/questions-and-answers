@@ -23,13 +23,19 @@ export class RequestionComponent implements OnInit {
  
   page: number = 0;
 
+  ///for scroll infinite/
+  listArray : string[] = [];
+  sum = 10;
+  direction = "";
+//  /end for scroll infinite/
   constructor(
     private route:ActivatedRoute,
     private questionService:QuestionService,
     private service: QuestionService,
+    
 
     ) {
-
+      this.appendItems();
     }
 
   id:string | undefined;
@@ -63,5 +69,43 @@ export class RequestionComponent implements OnInit {
     this.currentAnswer+=index;
   }
 
-}
+  onScroll(event: MouseEvent) {
 
+  }
+  //for scroll infinite/
+  onScrollDown(ev: any) {
+    console.log("scrolled down!!", ev);
+
+    this.sum += 10;
+    this.appendItems();
+    
+    this.direction = "scroll down";
+  }
+
+  onScrollUp(ev: any) {
+    console.log("scrolled up!", ev);
+    this.sum += 10;
+    this.prependItems();
+
+    this.direction = "scroll up";
+  }
+
+  appendItems() {
+    this.addItems("push");
+  }
+
+  prependItems() {
+    this.addItems("unshift");
+  }
+
+  addItems(_method: string) {
+    for (let i = 0; i < this.sum; ++i) {
+      if( _method === 'push'){
+        this.listArray.push([i].join(""));
+      }else if( _method === 'unshift'){
+        this.listArray.unshift([i].join(""));
+      }
+    }
+  }
+  //end for scroll infinite/
+}

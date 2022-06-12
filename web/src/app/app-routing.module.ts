@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AnswerComponent } from './paginas/answer/answer.component';
+import { EditAnswerComponent } from './paginas/edit-answer/edit-answer.component';
 import { QuestionComponent } from './paginas/question/question.component';
 import { RequestionComponent } from './paginas/requestion/requestion.component';
 import { LoginComponent } from './persona/login/login.component';
@@ -13,7 +14,9 @@ const routes: Routes = [
   { path: 'registro', component: RegistroComponent},
   { path: 'answer', component: AnswerComponent},
   {path: 'question/:id', component: RequestionComponent},
+  {path:'updateAnswer', component: EditAnswerComponent},
   {path: '**', pathMatch: 'full', redirectTo:'preguntas'}
+
 ];
 
 @NgModule({

@@ -1,6 +1,5 @@
 package co.com.sofka.questions.collections;
 
-import co.com.sofka.questions.model.AnswerDTO;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import java.time.LocalDateTime;

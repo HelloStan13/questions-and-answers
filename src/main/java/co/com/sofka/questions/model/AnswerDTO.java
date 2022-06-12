@@ -18,7 +18,7 @@ public class AnswerDTO {
     private LocalDateTime updateAt;
 
 
-    public AnswerDTO(String id, String userId, String answer, Integer position, LocalDateTime createAt) {
+    public AnswerDTO() {
 
     }
 
@@ -29,6 +29,9 @@ public class AnswerDTO {
         this.answer = answer;
         this.position= position;
         this.createAt = createAt;
+    }
+
+    public AnswerDTO(String id, String userId, String answer, Integer position, LocalDateTime createAt) {
     }
 
     public String getId() {    return id;   }
@@ -105,4 +108,6 @@ public class AnswerDTO {
 
                 '}';
     }
+
+
 }

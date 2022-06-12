@@ -122,18 +122,16 @@ public class QuestionRouter {
     }
 
     @Bean
-    @RouterOperation(operation = @Operation(operationId = "update", summary = "Update  answer", tags = { "Answers" },
+    @RouterOperation(operation = @Operation(operationId = "updateAnswer", summary = "Update  answer", tags = { "Answers" },
             requestBody  = @RequestBody(required = true, description = "Enter Request body as Json Object",
                     content = @Content( schema = @Schema(implementation = AnswerDTO.class))),
-            responses = { @ApiResponse(responseCode = "200", description = "successful operation", content = @Content(schema = @Schema(implementation = AnswerDTO.class))),
+            responses = {
+            @ApiResponse(responseCode = "200", description = "successful operation question Id", content = @Content(schema = @Schema(implementation = AnswerDTO.class))),
                     @ApiResponse(responseCode = "400", description = "Invalid Request") }))
-    public RouterFunction<ServerResponse> update(UpdateAnswerUseCase updateAnswerUseCase){
-        return route(PUT("/update").and(accept(MediaType.APPLICATION_JSON)),
-                request -> request.bodyToMono(AnswerDTO.class)
-                        .flatMap(updateAnswerDTO -> updateAnswerUseCase.apply(updateAnswerDTO)
-                                .flatMap(result -> ServerResponse.ok()
-                                        .contentType(MediaType.APPLICATION_JSON)
-                                        .bodyValue(result))));
+    public RouterFunction<ServerResponse> updateAnswer(UpdateAnswerUseCase updateAnswerUseCase){
+      Function<AnswerDTO,Mono<ServerResponse>>executor = AnswerDTO -> updateAnswerUseCase.editAnswer(AnswerDTO).flatMap(r -> ServerResponse.ok().contentType(MediaType.TEXT_PLAIN).bodyValue(r));
+        return  route(PUT("/updateAnswer").and(accept(MediaType.APPLICATION_JSON)),
+              request -> request.bodyToMono(AnswerDTO.class).flatMap(executor));
     }
 
 }
