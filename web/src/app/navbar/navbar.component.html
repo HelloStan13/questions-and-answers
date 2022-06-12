@@ -5,7 +5,6 @@
         </a> 
       <button pButton pRipple type="button" label="Iniciar Sesion" class="p-button-primary" *ngIf="!authService.userData as user" (click)="login()"></button>
       <button pButton pRipple type="button" label="Cerrar Sesión" class="p-button-primary" *ngIf="authService.userData as user" (click)="logout()" ></button>
-
      
     </div>
   </nav>

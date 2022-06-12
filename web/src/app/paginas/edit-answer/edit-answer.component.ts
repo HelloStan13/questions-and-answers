@@ -44,10 +44,9 @@ export class EditAnswerComponent implements OnInit {
     updateAt: new Date()
   };
 
-  oldAnswer: AnswerI = { ...this.answer };
+ 
 
   ngOnInit(): void {
-  //this.answer=this.oldAnswer;
 
   }
 

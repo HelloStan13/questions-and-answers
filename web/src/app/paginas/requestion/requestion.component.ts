@@ -62,11 +62,13 @@ export class RequestionComponent implements OnInit {
 
   }
 
+
   AddAnwsers(index:number) {
     let last=this.currentAnswer+index;
     for(let i = this.currentAnswer;i<last;i++){
     }
     this.currentAnswer+=index;
+    console.log("estoy aqui ");
   }
 
   onScroll(event: MouseEvent) {
