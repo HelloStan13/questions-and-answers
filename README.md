@@ -19,12 +19,16 @@ Haciendo uso del repositorio [base](https://github.com/Eddi-sofka/reto-training-
 ## ¿Cómo funciona?
 
 ### Principal
+![alt text](https://github.com/HelloStan13/questions-and-answers/blob/main/web/src/assets/principal.JPG)
 
 ### Iniciar sesión
+![alt text](https://github.com/HelloStan13/questions-and-answers/blob/main/web/src/assets/loginGoogle.JPG)
 
 ### Contestar Pregunta
+![alt text](https://github.com/HelloStan13/questions-and-answers/blob/main/web/src/assets/answer.JPG)
 
 ### Editar Respuesta
+![alt text](https://github.com/HelloStan13/questions-and-answers/blob/main/web/src/assets/editAnswer.JPG)
 
 
 ## Características desarrolladas:
@@ -44,13 +48,15 @@ Haciendo uso del repositorio [base](https://github.com/Eddi-sofka/reto-training-
 ## Despliegue
 
 ### Swagger
+![alt text](https://github.com/HelloStan13/questions-and-answers/blob/main/web/src/assets/swagger.JPG)
 [Da click aquí](https://forum-sofka.herokuapp.com/webjars/swagger-ui/index.html#/)
 
 ### Back-end
+![alt text](https://github.com/HelloStan13/questions-and-answers/blob/main/web/src/assets/herokuBack.JPG)
 [Da click aquí](https://forum-sofka.herokuapp.com/) y añada la ruta que desee ver. por ejemplo [getAll](https://forum-sofka.herokuapp.com/getAll)
 
-### Front-end
-[Da click aquí]()
+### Link
+[Da click aquí](https://fir-83199.web.app/preguntas)
 
 ---
 ⌨️ con ❤️ por [Adryan Ynfante](https://github.com/HelloStan13) y [Lorena Castro](https://github.com/Lcastro98) 
