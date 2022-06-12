@@ -1,8 +1,11 @@
 package co.com.sofka.questions.usecases;
 
+import co.com.sofka.questions.collections.Answer;
+import co.com.sofka.questions.collections.Question;
 import co.com.sofka.questions.model.AnswerDTO;
 import co.com.sofka.questions.model.QuestionDTO;
 import co.com.sofka.questions.reposioties.AnswerRepository;
+import org.springframework.data.annotation.Id;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 import reactor.core.publisher.Mono;
@@ -25,12 +28,16 @@ public class AddAnswerUseCase implements SaveAnswer {
     public Mono<QuestionDTO> apply(AnswerDTO answerDTO) {
         Objects.requireNonNull(answerDTO.getQuestionId(), "Id of the answer is required");
         return getUseCase.apply(answerDTO.getQuestionId()).flatMap(question ->
-                answerRepository.save(mapperUtils.mapperToAnswer().apply(answerDTO))
+                answerRepository.save(mapperUtils.mapperToAnswer(answerDTO.getId()).apply(answerDTO))
                         .map(answer -> {
                             question.getAnswers().add(answerDTO);
                             return question;
                         })
         );
     }
-
+    public Mono<String>editAnswer(AnswerDTO answerDTO){
+        Objects.requireNonNull(answerDTO.getId(),"Id requerido");
+        return  answerRepository.save(mapperUtils.mapperToAnswer(answerDTO.getId()).apply(answerDTO))
+                .map(Answer::getId);
+    }
 }

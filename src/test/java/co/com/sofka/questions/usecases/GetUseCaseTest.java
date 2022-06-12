@@ -51,7 +51,7 @@ class GetUseCaseTest {
         List<AnswerDTO> answersDTO = new ArrayList<>();
 
         Answer answer = new Answer();
-        AnswerDTO answerDTO = new AnswerDTO("asdf", "12334", "Es 4",1, LocalDateTime.of(2022, 06, 10, 8, 0));
+        AnswerDTO answerDTO = new AnswerDTO("4654665fgf", "12aa334", "564b6fb", "que es java", 4, LocalDateTime.of(2022, 06, 10, 8, 0, 0));
         answer.setQuestionId(answerDTO.getQuestionId());
         answer.setUserId(answerDTO.getUserId());
         answer.setAnswer(answerDTO.getAnswer());

@@ -1,14 +1,13 @@
 package co.com.sofka.questions.usecases;
 
-import co.com.sofka.questions.QuestionsApplication;
 import co.com.sofka.questions.collections.Question;
 import co.com.sofka.questions.model.QuestionDTO;
 import co.com.sofka.questions.reposioties.QuestionRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 import reactor.core.publisher.Mono;
+
+import java.util.Objects;
 
 @Service
 @Validated
@@ -25,6 +24,12 @@ public class CreateUseCase implements SaveQuestion {
     public Mono<String> apply(QuestionDTO newQuestion) {
         return questionRepository
                 .save(mapperUtils.mapperToQuestion(null).apply(newQuestion))
+                .map(Question::getId);
+    }
+    public Mono<String>editQuestion(QuestionDTO questionDTO){
+        Objects.requireNonNull(questionDTO.getQuestion(),"Id requerido");
+        return  questionRepository
+                .save(mapperUtils.mapperToQuestion(questionDTO.getId()).apply(questionDTO))
                 .map(Question::getId);
     }
 

@@ -1,9 +1,9 @@
 package co.com.sofka.questions.model;
 
-
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 import java.util.Objects;
+
 
 public class AnswerDTO {
     private String id;
@@ -13,31 +13,23 @@ public class AnswerDTO {
     private String questionId;
     @NotBlank
     private String answer;
+
     private Integer position;
     private LocalDateTime createAt;
     private LocalDateTime updateAt;
 
-
-    public AnswerDTO() {
-
-    }
-
-    public AnswerDTO(String id,@NotBlank String questionId, @NotBlank String userId, @NotBlank String answer,  Integer position,LocalDateTime createAt) {
-        this.id= id;
+    public AnswerDTO(String id,@NotBlank String questionId, @NotBlank String userId, @NotBlank String answer, @NotBlank Integer position,LocalDateTime createAt) {
+        this.id = id;
         this.userId = userId;
         this.questionId = questionId;
         this.answer = answer;
         this.position= position;
         this.createAt = createAt;
     }
-
-    public AnswerDTO(String id, String userId, String answer, Integer position, LocalDateTime createAt) {
+    public String getId() { return id; }
+    public void setId(String id) {
+        this.id = id;
     }
-
-    public String getId() {    return id;   }
-
-    public void setId(String id) {    this.id = id;   }
-
     public Integer getPosition() {
         return  position;
     }
@@ -102,12 +94,11 @@ public class AnswerDTO {
     @Override
     public String toString() {
         return "AnswerDTO{" +
+                "id='" + id + '\'' +
                 "userId='" + userId + '\'' +
                 ", questionId='" + questionId + '\'' +
                 ", answer='" + answer + '\'' +
-
+                ", createAt='" + createAt + '\'' +
                 '}';
     }
-
-
 }

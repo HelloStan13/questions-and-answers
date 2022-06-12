@@ -19,18 +19,6 @@ public class QuestionDTO {
     private String category;
     private List<AnswerDTO> answers;
 
-
-    public QuestionDTO() {
-
-    }
-
-    public QuestionDTO(String userId, String question, String type, String category) {
-        this.userId = userId;
-        this.question = question;
-        this.type = type;
-        this.category = category;
-    }
-
     public QuestionDTO(String id, String userId, String question, String type, String category) {
         this.id = id;
         this.userId = userId;
@@ -111,4 +99,5 @@ public class QuestionDTO {
     public int hashCode() {
         return Objects.hash(id);
     }
+
 }

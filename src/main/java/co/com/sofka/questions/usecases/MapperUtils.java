@@ -4,6 +4,7 @@ import co.com.sofka.questions.collections.Answer;
 import co.com.sofka.questions.collections.Question;
 import co.com.sofka.questions.model.AnswerDTO;
 import co.com.sofka.questions.model.QuestionDTO;
+import org.springframework.data.annotation.Id;
 import org.springframework.stereotype.Component;
 
 import java.util.function.Function;
@@ -11,10 +12,10 @@ import java.util.function.Function;
 @Component
 public class MapperUtils {
 
-    public Function<AnswerDTO, Answer> mapperToAnswer() {
+    public Function<AnswerDTO, Answer> mapperToAnswer(String id ) {
         return updateAnswer -> {
             var answer = new Answer();
-            answer.setId(updateAnswer.getId());
+            answer.setId(id);
             answer.setPosition(updateAnswer.getPosition());
             answer.setQuestionId(updateAnswer.getQuestionId());
             answer.setUserId(updateAnswer.getUserId());
@@ -52,6 +53,7 @@ public class MapperUtils {
         return entity -> new AnswerDTO(
                 entity.getId(),
                 entity.getUserId(),
+                entity.getQuestionId(),
                 entity.getAnswer(),
                 entity.getPosition(),
                 entity.getCreateAt()
